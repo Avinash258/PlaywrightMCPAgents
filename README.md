@@ -1,41 +1,69 @@
 # Playwright MCP Agents
 
-Agentic browser automation on **Playwright MCP** — Planner, Generator and Healer loops that produce reviewable TypeScript specs.
+Agentic browser automation experiments on **Playwright MCP** â€” Planner / Generator / Healer style loops that produce reviewable Playwright specs.
 
-> Part of the public AIQA toolkit by [Avinash Sharma](https://github.com/Avinash258) · [Portfolio](https://avinash258.github.io/Protfolio/)
+[![License: MIT](https://img.shields.io/badge/License-MIT-blue.svg)](LICENSE)
+![Playwright](https://img.shields.io/badge/Playwright-MCP-45ba4b)
+
+> Flagship public sample for the AIQA direction Â· [Portfolio](https://avinash258.github.io/Protfolio/) Â· companion sandbox: [PlaywrightMCPAgent](https://github.com/Avinash258/PlaywrightMCPAgent)
 
 ## Overview
 
-This repository demonstrates how LLM agents can drive real browsers through the **Model Context Protocol (MCP)** instead of guessing at the DOM. Agents plan scenarios, generate Playwright tests, and propose fixes from failing traces — with a human review step before changes land.
+This repository is a **Playwright + MCP agent workspace**: specs and tests driven through the Model Context Protocol so LLM agents act on a real browser, not a guessed DOM.
 
-## Capabilities
+It is intentionally lean (agent scaffold + specs/tests). The fuller enterprise platform (fixtures library, reporters, RAG, Playtest, evaluation scorecards) lives in the private **AIQA** / **DeepEVL** work â€” summarised on the [portfolio](https://avinash258.github.io/Protfolio/#platforms).
 
-| Agent | Role |
+**Target flow (product vision):**
+
+```text
+Requirement â†’ Planner â†’ Generator â†’ Playwright MCP run â†’ Failure analysis â†’ Healer â†’ Human review / PR
+```
+
+## What is in this repo today
+
+| Path | Purpose |
 |---|---|
-| **Planner** | Turns requirements into a risk-weighted scenario plan |
-| **Generator** | Emits Playwright TypeScript specs aligned to fixtures / POM |
-| **Healer** | Analyses failing traces and proposes locator / data repairs |
+| `specs/` | Agent / scenario definitions |
+| `tests/` | Playwright executable suites |
+| `playwright.config.js` | Playwright project config |
+| `.github/` | Workflow / CI stubs |
 
 ## Stack
 
-- Playwright · TypeScript / JavaScript
+- Playwright (JavaScript)
 - Playwright MCP
-- OpenAI / Azure AI (configurable)
+- Node.js
 
 ## Getting started
 
 ```bash
+git clone https://github.com/Avinash258/PlaywrightMCPAgents.git
+cd PlaywrightMCPAgents
 npm install
 npx playwright install
-npm test
+npx playwright test
 ```
 
-## Related repositories
+Configure any LLM / MCP provider keys in a local `.env` (never commit secrets).
 
-- [PlaywrightMCPAgent](https://github.com/Avinash258/PlaywrightMCPAgent) — companion MCP agent workspace
-- [AIQA Platform](https://avinash258.github.io/Protfolio/#platforms) — private enterprise platform (capability overview)
+## Roadmap
+
+- [ ] Documented example: requirement â†’ generated spec â†’ healed failure
+- [ ] Demo GIF / short video of an agent loop
+- [ ] TypeScript migration and shared fixture package
+- [ ] CI badge with green status on main
+
+## Related
+
+- [PlaywrightMCPAgent](https://github.com/Avinash258/PlaywrightMCPAgent) â€” smaller companion sandbox
+- [eyPOC](https://github.com/Avinash258/eyPOC) â€” Playtest / unified QA platform
+- [AIQA / DeepEVL overview](https://avinash258.github.io/Protfolio/#platforms) â€” private platforms
+
+## License
+
+MIT â€” see [LICENSE](LICENSE).
 
 ## Author
 
-**Pushanshu Avinash Sharma** — QA Automation Architect / Lead SDET  
-[GitHub](https://github.com/Avinash258) · [LinkedIn](https://www.linkedin.com/in/p-avinash-sharma-8b0203b9/) · [Portfolio](https://avinash258.github.io/Protfolio/)
+**Avinash Sharma** â€” QA Automation Architect / Lead SDET  
+[GitHub](https://github.com/Avinash258) Â· [LinkedIn](https://www.linkedin.com/in/p-avinash-sharma-8b0203b9/) Â· [Portfolio](https://avinash258.github.io/Protfolio/)
