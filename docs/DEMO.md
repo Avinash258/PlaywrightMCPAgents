@@ -1,6 +1,6 @@
-# Demo walkthrough — Requirement → Plan → Spec → Heal
+# Demo walkthrough â€” Requirement â†’ Plan â†’ Spec â†’ Heal
 
-This repository is a working **Playwright MCP agent kit**. The SauceDemo cart flow below is the public proof of the Planner → Generator → Healer loop.
+This repository is a working **Playwright MCP agent kit**. The SauceDemo cart flow below is the public proof of the Planner â†’ Generator â†’ Healer loop.
 
 ```mermaid
 flowchart LR
@@ -74,7 +74,7 @@ npx playwright test tests/cart-functionality/view-cart-multiple-items.spec.ts
 1. Run tests; note failures.
 2. Invoke the **Healer** agent (`.github/agents/playwright-test-healer.agent.md`).
 3. Healer uses MCP `test_debug` + snapshots to propose locator / assertion fixes.
-4. Human reviews the diff — agents propose, engineers approve.
+4. Human reviews the diff â€” agents propose, engineers approve.
 
 ## Human-in-the-loop rule
 
@@ -82,12 +82,12 @@ Generated and healed code is **not** auto-merged. Every change is reviewable Typ
 
 ## Record a short demo video (optional)
 
-Suggested 60–90s script for YouTube / LinkedIn:
+Suggested 60â€“90s script for YouTube / LinkedIn:
 
 1. Open `specs/cart-page-test-plan.md` (Planner).
 2. Open generated `view-cart-multiple-items.spec.ts` (Generator).
 3. Run `npx playwright test tests/cart-functionality/... --headed`.
 4. Mention Healer agent path for failure recovery.
-5. Point to private AIQA / DeepEVL for enterprise packaging: https://avinash258.github.io/Protfolio/#platforms
+5. Point to private AIQA / DeepEVL for enterprise packaging: https://avinash258.github.io/portfolio/#platforms
 
-When published, add the link under [README.md](../README.md) → Demo.
+When published, add the link under [README.md](../README.md) â†’ Demo.
