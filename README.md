@@ -1,69 +1,75 @@
 # Playwright MCP Agents
 
-Agentic browser automation experiments on **Playwright MCP** â€” Planner / Generator / Healer style loops that produce reviewable Playwright specs.
+Agentic browser automation on **Playwright MCP** — Planner, Generator and Healer loops that produce reviewable Playwright specs.
 
+[![Playwright Tests](https://github.com/Avinash258/PlaywrightMCPAgents/actions/workflows/playwright.yml/badge.svg)](https://github.com/Avinash258/PlaywrightMCPAgents/actions/workflows/playwright.yml)
 [![License: MIT](https://img.shields.io/badge/License-MIT-blue.svg)](LICENSE)
-![Playwright](https://img.shields.io/badge/Playwright-MCP-45ba4b)
+[![Release](https://img.shields.io/github/v/release/Avinash258/PlaywrightMCPAgents?include_prereleases)](https://github.com/Avinash258/PlaywrightMCPAgents/releases)
 
-> Flagship public sample for the AIQA direction Â· [Portfolio](https://avinash258.github.io/Protfolio/) Â· companion sandbox: [PlaywrightMCPAgent](https://github.com/Avinash258/PlaywrightMCPAgent)
+> Flagship public sample for the AIQA direction · **[Demo walkthrough](docs/DEMO.md)** · [Portfolio](https://avinash258.github.io/Protfolio/)
 
-## Overview
+## Why this repo
 
-This repository is a **Playwright + MCP agent workspace**: specs and tests driven through the Model Context Protocol so LLM agents act on a real browser, not a guessed DOM.
-
-It is intentionally lean (agent scaffold + specs/tests). The fuller enterprise platform (fixtures library, reporters, RAG, Playtest, evaluation scorecards) lives in the private **AIQA** / **DeepEVL** work â€” summarised on the [portfolio](https://avinash258.github.io/Protfolio/#platforms).
-
-**Target flow (product vision):**
+Most “AI + Playwright” starters stop at a prompt. This kit shows a **reviewable pipeline**:
 
 ```text
-Requirement â†’ Planner â†’ Generator â†’ Playwright MCP run â†’ Failure analysis â†’ Healer â†’ Human review / PR
+Requirement → Planner → Generator → Playwright MCP run → Healer → Human review
 ```
 
-## What is in this repo today
+Public proof uses **SauceDemo** cart scenarios (plan + generated TypeScript spec checked in).
 
-| Path | Purpose |
-|---|---|
-| `specs/` | Agent / scenario definitions |
-| `tests/` | Playwright executable suites |
-| `playwright.config.js` | Playwright project config |
-| `.github/` | Workflow / CI stubs |
-
-## Stack
-
-- Playwright (JavaScript)
-- Playwright MCP
-- Node.js
-
-## Getting started
+## Quick start
 
 ```bash
 git clone https://github.com/Avinash258/PlaywrightMCPAgents.git
 cd PlaywrightMCPAgents
-npm install
-npx playwright install
-npx playwright test
+npm ci
+npx playwright install --with-deps chromium
+npm test
+npm run test:cart
 ```
 
-Configure any LLM / MCP provider keys in a local `.env` (never commit secrets).
+## Demo (start here)
+
+Full walkthrough with paths and mermaid flow: **[docs/DEMO.md](docs/DEMO.md)**
+
+| Stage | Path |
+|---|---|
+| Planner agent | `.github/agents/playwright-test-planner.agent.md` |
+| Generated plan | `specs/cart-page-test-plan.md` |
+| Generator agent | `.github/agents/playwright-test-generator.agent.md` |
+| Generated spec | `tests/cart-functionality/view-cart-multiple-items.spec.ts` |
+| Healer agent | `.github/agents/playwright-test-healer.agent.md` |
+
+## Stack
+
+- Playwright (JavaScript / TypeScript specs)
+- Playwright Test MCP server (`npx playwright run-test-mcp-server`)
+- GitHub agent definitions under `.github/agents/`
+
+## What is *not* in this public repo
+
+Enterprise packaging — shared fixtures library, RAG knowledge, Playtest no-code, evaluation scorecards — lives in private **AIQA** / **DeepEVL**. Overview: [portfolio platforms](https://avinash258.github.io/Protfolio/#platforms).
 
 ## Roadmap
 
-- [ ] Documented example: requirement â†’ generated spec â†’ healed failure
-- [ ] Demo GIF / short video of an agent loop
-- [ ] TypeScript migration and shared fixture package
-- [ ] CI badge with green status on main
+- [x] Documented demo: plan → generated cart spec
+- [x] CI on `main` + Dependabot
+- [ ] Short demo video linked from README
+- [ ] TypeScript-first package layout
+- [ ] Sample healed-failure PR diff
 
 ## Related
 
-- [PlaywrightMCPAgent](https://github.com/Avinash258/PlaywrightMCPAgent) â€” smaller companion sandbox
-- [eyPOC](https://github.com/Avinash258/eyPOC) â€” Playtest / unified QA platform
-- [AIQA / DeepEVL overview](https://avinash258.github.io/Protfolio/#platforms) â€” private platforms
+- [playwright-sharded-ci](https://github.com/Avinash258/playwright-sharded-ci) — reusable GitHub Action for shard + merge reports
+- [playwright-otel-reporter](https://github.com/Avinash258/playwright-otel-reporter) — Playwright reporter that emits OpenTelemetry-style spans
+- [PlaywrightMCPAgent](https://github.com/Avinash258/PlaywrightMCPAgent) — companion sandbox
 
 ## License
 
-MIT â€” see [LICENSE](LICENSE).
+MIT — see [LICENSE](LICENSE).
 
 ## Author
 
-**Avinash Sharma** â€” QA Automation Architect / Lead SDET  
-[GitHub](https://github.com/Avinash258) Â· [LinkedIn](https://www.linkedin.com/in/p-avinash-sharma-8b0203b9/) Â· [Portfolio](https://avinash258.github.io/Protfolio/)
+**Avinash Sharma** — QA Automation Architect / Lead SDET  
+[GitHub](https://github.com/Avinash258) · [LinkedIn](https://www.linkedin.com/in/p-avinash-sharma-8b0203b9/) · [Portfolio](https://avinash258.github.io/Protfolio/)

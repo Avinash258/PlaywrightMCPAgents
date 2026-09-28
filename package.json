@@ -1,12 +1,24 @@
 {
-  "name": "playwrightmcpagents",
-  "version": "1.0.0",
-  "main": "index.js",
-  "scripts": {},
-  "keywords": [],
-  "author": "",
-  "license": "ISC",
-  "description": "",
+  "name": "playwright-mcp-agents",
+  "version": "0.1.0",
+  "description": "Agentic browser automation on Playwright MCP — Planner, Generator and Healer loops with a SauceDemo demo.",
+  "private": true,
+  "license": "MIT",
+  "author": "Avinash Sharma",
+  "scripts": {
+    "test": "playwright test",
+    "test:cart": "playwright test tests/cart-functionality",
+    "test:headed": "playwright test --headed",
+    "test:ui": "playwright test --ui",
+    "report": "playwright show-report"
+  },
+  "keywords": [
+    "playwright",
+    "mcp",
+    "agentic-testing",
+    "ai-agents",
+    "qa"
+  ],
   "devDependencies": {
     "@playwright/test": "^1.57.0",
     "@types/node": "^24.10.1"
